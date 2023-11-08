@@ -11,12 +11,13 @@ createApp({
     const classObj = reactive({
       hasColor:"grey",
       changes: ()=>{
-        if(hasColor > 0){
-          return "green"
+        if(classObj.hasColor > 0){
+          return "green";
         }
-        if(hasColor < 0){
+        if(classObj.hasColor < 0){
           return "red";
         }
+        return "grey";
       }
     })
 
