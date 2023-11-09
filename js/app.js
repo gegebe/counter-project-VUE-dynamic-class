@@ -1,6 +1,6 @@
 // Tu código aquí.
 
-import {createApp, ref, reactive} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
+import {createApp, ref, computed} from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 
 createApp({
   setup() {
@@ -8,30 +8,27 @@ createApp({
     //Equivale a la ID counter del <h1>>
     const counter = ref(0)
 
-    const classObj = reactive({
-      hasColor:"grey",
-      changes: ()=>{
-        if(classObj.hasColor > 0){
-          return "green";
-        }
-        if(classObj.hasColor < 0){
-          return "red";
-        }
-        return "grey";
-      }
-    })
+    // const classObj = computed({
+    //   hasColor:"grey",
+    //   changes: ()=>{
+    //     if(classObj.hasColor > 0){
+    //       return "green";
+    //     }
+    //     if(classObj.hasColor < 0){
+    //       return "red";
+    //     }
+    //     return "grey";
+    //   }
+    // })
 
     //Pasa el valor del HTML newCounter(-1), por el parámetro x
-    function newCounter(x, classObj){
+    function newCounter(x){
       counter.value = counter.value + x
-      classObj.changes(counter.value)
     }
 
     return {
       counter,
-      newCounter,
-      classObj
-
+      newCounter
     };
   },
 }).mount("#app");
